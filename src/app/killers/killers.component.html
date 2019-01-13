@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="clearfix">
+    <header class="row">
+      <div class="col">
+        <h1>CS-GO Ranking</h1>
+      </div>
+    </header>
+  </div>
+
+  <section class="container">
+    <table class="table-info">
+      <thead>
+        <th>Player</th>
+        <th>Kills</th>
+        <th>Deaths</th>
+        <th>Score</th>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let killer of killers">
+        <td>{{killer.playerName}}</td>
+        <td>{{killer.kills}}</td>
+        <td>{{killer.deaths}}</td>
+        <td>{{killer.score}}</td>
+      </tr>
+      </tbody>
+
+    </table>
+  </section>
+</div>
+
+<div class="container">
+  <div class="row">
+    <input type="button" [disabled]='buttonDisabled'   value="BUTTON">
+  </div>
+</div>
