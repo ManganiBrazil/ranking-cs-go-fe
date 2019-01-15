@@ -1,0 +1,33 @@
+<div class="container">
+
+
+    <div class="row">
+      <div class="form-group col-md-6">
+        <select [(ngModel)]="state"  id="state" class="form-control">
+          <option *ngFor="let st of states" [value]="st.id">{{st.value}}</option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-6">
+        <button type="button" (click)="choose()" class="btn btn-primary">CHOOSE</button>
+      </div>
+    </div>
+
+
+  <div class="row" [ngSwitch]="state">
+    <div class="col bg-warning" *ngSwitchCase="WARNING">
+      WARNING
+    </div>
+
+    <div class="col bg-success" *ngSwitchCase="SUCCESS">
+      SUCCESS
+    </div>
+
+    <div class="col bg-info" *ngSwitchCase="INFO">
+      INFO
+    </div>
+
+  </div>
+
+
+</div>

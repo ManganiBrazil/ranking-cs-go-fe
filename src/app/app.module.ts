@@ -10,13 +10,15 @@ import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { KillersComponent } from './killers/killers.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgSwitchExampleComponent } from './ng-switch-example/ng-switch-example.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    KillersComponent
+    KillersComponent,
+    NgSwitchExampleComponent
   ],
   imports: [
     BrowserModule,
