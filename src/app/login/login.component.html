@@ -1,17 +1,56 @@
-<div class="container-fluid">
-  <div class="clearfix">
-    <header class="row-fluid text-center">
-      <h1>CS-GO Ranking</h1>
-    </header>
+<form #loginForm="ngForm">
 
-    <section class="row-fluid text-center">
-      <input [(ngModel)]="user.username" type="text" id="username" class="validate" placeholder="username"><br>
-      <input [(ngModel)]="user.password" type="password" class="validate" id="password" placeholder="password"><br>
-      <button (click)="login()" class="btn btn-success" type="submit" name="action">LOGIN</button>
-      <br>
-      <span>{{errorMsg}}</span>
-    </section>
+  <div class="container-fluid">
+    <div class="clearfix">
+      <header class="row-fluid text-center">
+        <h1>CS-GO Ranking</h1>
+      </header>
 
+      <section class="row-fluid text-center">
+        <input [(ngModel)]="user.username"
+               type="text"
+               id="username"
+               class="validate"
+               name="username"
+               placeholder="username"><br>
+
+        <input [(ngModel)]="user.password"
+               type="password"
+               class="validate"
+               id="password"
+               name="password"
+               placeholder="password"><br>
+
+        <input [(ngModel)]="user.birthDate"
+               type="text"
+               class="validate"
+               #birthdate="ngModel"
+               id="birthdate"
+               placeholder="Birth date"
+               name="birthdate"
+               required
+               dateValidator>
+
+        <br>
+
+        <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)"
+             class="alert alert-danger">
+
+          <div *ngIf="birthdate.errors.required">
+            Bithdate is required.
+          </div>
+
+          <div *ngIf="birthdate.errors.dataInvalida">
+            Birthdate invalid.
+          </div>
+        </div>
+
+        <button (click)="login()" class="btn btn-success" type="submit" name="action">LOGIN</button>
+        <br>
+        <span>{{errorMsg}}</span>
+      </section>
+
+    </div>
   </div>
-</div>
 
+</form>

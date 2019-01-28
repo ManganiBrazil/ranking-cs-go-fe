@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserModel } from '../model/user.model';
 import { AutenthicationService } from '../services/autenthication.service';
 import { Router } from '@angular/router';
 import { UrlEnum } from '../enum/url.enum';
+import { DateType } from '../enum/date-type.enum';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,10 @@ import { UrlEnum } from '../enum/url.enum';
 })
 export class LoginComponent implements OnInit {
 
-  user: UserModel = {username: '', password: ''};
+  @ViewChild('loginForm')
+  loginForm: NgForm;
+
+  user: UserModel = <UserModel>({});
   errorMsg: String = '';
 
   constructor(
@@ -23,13 +28,16 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
+
+    console.log(this.loginForm.valid);
+/*
     if (!this.authService.find(this.user)) {
       this.errorMsg = 'Invalid login!';
       this.router.navigate([UrlEnum.LOGIN]);
     }
 
     this.errorMsg = '';
-    this.router.navigate([UrlEnum.HOME]);
+    this.router.navigate([UrlEnum.HOME]);*/
 
   }
 }

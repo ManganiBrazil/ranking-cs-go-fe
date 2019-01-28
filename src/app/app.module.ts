@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { KillersComponent } from './killers/killers.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgSwitchExampleComponent } from './ng-switch-example/ng-switch-example.component';
+import { DateValidatorDirective } from './directives/date-validator.directive';
+import { DateService } from './services/date.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { NgSwitchExampleComponent } from './ng-switch-example/ng-switch-example.
     LoginComponent,
     HomeComponent,
     KillersComponent,
-    NgSwitchExampleComponent
+    NgSwitchExampleComponent,
+    DateValidatorDirective
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,11 @@ import { NgSwitchExampleComponent } from './ng-switch-example/ng-switch-example.
   ],
   providers: [
     HttpClient,
-    AutenthicationService
+    AutenthicationService,
+    DateService
+  ],
+  exports: [
+    DateValidatorDirective
   ],
   bootstrap: [AppComponent]
 })
