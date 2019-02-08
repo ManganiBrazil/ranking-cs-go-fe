@@ -12,6 +12,7 @@
                id="username"
                class="validate"
                name="username"
+               required
                placeholder="username"><br>
 
         <input [(ngModel)]="user.password"
@@ -19,6 +20,7 @@
                class="validate"
                id="password"
                name="password"
+               required
                placeholder="password"><br>
 
         <input [(ngModel)]="user.birthDate"
@@ -45,7 +47,12 @@
           </div>
         </div>
 
-        <button (click)="login()" class="btn btn-success" type="submit" name="action">LOGIN</button>
+        <button (click)="login()"
+                disabled="desabilitaBotao"
+                class="btn btn-success"
+                type="submit"
+                [disabled]="loginForm.invalid"
+                name="action">LOGIN</button>
         <br>
         <span>{{errorMsg}}</span>
       </section>
