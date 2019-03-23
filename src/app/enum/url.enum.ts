@@ -1,4 +1,5 @@
 export enum UrlEnum {
   LOGIN = '/login',
-  HOME = '/home'
+  KILLERS = '/killers',
+  RANKING_URL = 'http://localhost:8080/cs/ranking'
 }

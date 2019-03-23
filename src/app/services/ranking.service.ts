@@ -4,21 +4,20 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { RankingModel } from '../model/ranking.model';
 import { KillerModel } from '../model/killer.model';
-
-const RANKING_URL = 'http://localhost:8080/cs/go/ranking';
-const RANKING_WEAPONS_URL = 'http://localhost:8080/cs/go/ranking/weapon';
+import { UrlEnum } from '../enum/url.enum';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RankingService {
 
-  constructor(private http: HttpClient) {
-  }
+  private readonly RANKING_URL = UrlEnum.RANKING_URL;
+
+  constructor(private http: HttpClient) {}
 
   list(): Promise<Array<KillerModel>> {
     return this.http
-      .get(RANKING_URL)
+      .get(this.RANKING_URL)
       .pipe(map((response: RankingModel) => {
         return response.ranking;
       }))

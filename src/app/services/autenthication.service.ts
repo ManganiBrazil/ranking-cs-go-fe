@@ -25,7 +25,9 @@ export class AutenthicationService {
 
   find(user: UserModel): boolean {
 
-    const found = users.find(u => user.password === u.password && user.username === u.username);
+    const found = users.find(
+      u => user.password === u.password &&
+                user.username === u.username);
 
     if (!isNullOrUndefined(found)) {
       localStorage.setItem(this.USER, JSON.stringify(user));

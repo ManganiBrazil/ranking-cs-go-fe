@@ -1,2 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+  background-color: #2d3135;
+  font-size: 100%;
+}
+
+.counter-strike {
+  margin: 5rem auto 2rem;
+  text-align: center;
+  text-shadow: 3px 3px #fff;
+}

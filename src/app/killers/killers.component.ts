@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { KillerModel } from '../model/killer.model';
 import { RankingService } from '../services/ranking.service';
 import { isNullOrUndefined } from 'util';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-killers',
@@ -10,23 +11,23 @@ import { isNullOrUndefined } from 'util';
 })
 export class KillersComponent implements OnInit {
 
-  killers: Array<KillerModel>;
+  killers: KillerModel[];
   buttonDisabled = true;
 
   constructor(private rankingService: RankingService) {
   }
 
   ngOnInit() {
-    this.listar();
+    this.initListeners();
   }
 
-  private listar(): void {
+  private initListeners(): void {
     this.rankingService
       .list()
-      .then((killersResponse: Array<KillerModel>) => {
+      .then((killersResponse: KillerModel[]) => {
         this.killers = killersResponse;
       })
-      .catch((error: any) => {
+      .catch((error: HttpErrorResponse) => {
         console.log(JSON.stringify(error));
       })
       .finally(() => {

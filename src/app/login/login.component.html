@@ -1,62 +1,41 @@
-<form #loginForm="ngForm">
+<h1 class="counter-strike">Counter Strike</h1>
 
-  <div class="container-fluid">
-    <div class="clearfix">
-      <header class="row-fluid text-center">
-        <h1>CS-GO Ranking</h1>
-      </header>
+<form #loginForm="ngForm" (submit)="login()">
 
-      <section class="row-fluid text-center">
-        <input [(ngModel)]="user.username"
-               type="text"
-               id="username"
-               class="validate"
-               name="username"
-               required
-               placeholder="username"><br>
+  <div class="container mt-5 login">
 
-        <input [(ngModel)]="user.password"
-               type="password"
-               class="validate"
-               id="password"
-               name="password"
-               required
-               placeholder="password"><br>
+    <div class="input-group mb-3">
 
-        <input [(ngModel)]="user.birthDate"
-               type="text"
-               class="validate"
-               #birthdate="ngModel"
-               id="birthdate"
-               placeholder="Birth date"
-               name="birthdate"
-               required
-               dateValidator>
+      <input type="text"
+             class="form-control"
+             placeholder="Username"
+             aria-label="Username"
+             aria-describedby="basic-addon1"
+             name="username"
+             [(ngModel)]="user.username">
+    </div>
 
-        <br>
+    <div class="input-group mb-3">
 
-        <div *ngIf="birthdate.invalid && (birthdate.dirty || birthdate.touched)"
-             class="alert alert-danger">
+      <input type="password"
+             class="form-control"
+             placeholder="Password"
+             aria-label="Password"
+             aria-describedby="basic-addon1"
+             name="password"
+             [(ngModel)]="user.password">
+    </div>
 
-          <div *ngIf="birthdate.errors.required">
-            Bithdate is required.
-          </div>
+    <div class="input-group mb-3">
 
-          <div *ngIf="birthdate.errors.dataInvalida">
-            Birthdate invalid.
-          </div>
-        </div>
+      <input type="submit"
+             value="LOGIN"
+             class="btn btn-success">
+    </div>
 
-        <button (click)="login()"
-                disabled="desabilitaBotao"
-                class="btn btn-success"
-                type="submit"
-                [disabled]="loginForm.invalid"
-                name="action">LOGIN</button>
-        <br>
-        <span>{{errorMsg}}</span>
-      </section>
-
+    <div class="alert alert-danger"
+         *ngIf="errorMsg">
+      <strong>Invalid username or password!</strong>
     </div>
   </div>
 
