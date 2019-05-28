@@ -6,6 +6,7 @@ import { KillersComponent } from './killers/killers.component';
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'killers', component: KillersComponent},
+  {path: 'assassians/:id', redirectTo: 'killers', pathMatch: 'full'},
   {path: '', redirectTo: '/login', pathMatch: 'full'}
 ];
 

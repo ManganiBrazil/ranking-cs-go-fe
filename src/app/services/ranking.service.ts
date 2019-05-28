@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 import { map } from 'rxjs/operators';
-import { RankingModel } from '../model/ranking.model';
 import { KillerModel } from '../model/killer.model';
 import { UrlEnum } from '../enum/url.enum';
 
@@ -13,14 +12,16 @@ export class RankingService {
 
   private readonly RANKING_URL = UrlEnum.RANKING_URL;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   list(): Promise<Array<KillerModel>> {
     return this.http
       .get(this.RANKING_URL)
-      .pipe(map((response: RankingModel) => {
-        return response.ranking;
-      }))
-      .toPromise();
+      .pipe(
+        map((response: HttpResponse<KillerModel[]>) => {
+          return response['ranking'];
+        })
+      ).toPromise();
   }
 }
