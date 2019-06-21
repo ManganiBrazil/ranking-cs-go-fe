@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 import { NgForm } from '@angular/forms';
 import { UrlEnum } from '../enum/url.enum';
+import { Validator } from 'class-validator';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AutenthicationService,
-    private router: Router
+    private router: Router,
+    private validator: Validator
   ) {}
 
   ngOnInit() { }
@@ -36,5 +38,18 @@ export class LoginComponent implements OnInit {
     }
 
     this.router.navigate([UrlEnum.KILLERS]);
+  }
+
+  isNumber(keyBoardEvent: KeyboardEvent): void {
+
+    const validNumber = this.validator.isNumberString(keyBoardEvent.key);
+
+    if (!validNumber) {
+      this.user.id = undefined;
+    }
+  }
+
+  click(): void {
+    alert("OK");
   }
 }

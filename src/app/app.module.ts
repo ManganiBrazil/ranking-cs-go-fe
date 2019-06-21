@@ -8,6 +8,7 @@ import { AutenthicationService } from './services/autenthication.service';
 import { FormsModule } from '@angular/forms';
 import { KillersComponent } from './killers/killers.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Validator } from 'class-validator';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   ],
   providers: [
     HttpClient,
-    AutenthicationService
+    AutenthicationService,
+    Validator
   ],
 
   bootstrap: [AppComponent]
