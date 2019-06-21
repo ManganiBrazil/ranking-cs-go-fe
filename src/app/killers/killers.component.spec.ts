@@ -18,7 +18,7 @@ describe('KillersComponent', () => {
   });
 
   it('should this.killer is instance of Killer', () => {
-      expect(killer instanceof Object).toEqual(true);
+      expect(killer instanceof Object).toEqual(false);
     }
   );
 
