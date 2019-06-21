@@ -26,7 +26,7 @@ describe('KillersComponent', () => {
     killerConst.deathes = 1000;
     console.warn('killer -> ', JSON.stringify(killer));
     console.warn('killerConst -> ', JSON.stringify(killerConst));
-    expect(Object.is(killer, killerConst)).toBeTruthy();
+    expect(Object.is(killer, killerConst)).toBe(false);
 
   }));
 
