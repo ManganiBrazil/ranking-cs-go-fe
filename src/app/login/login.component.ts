@@ -48,8 +48,4 @@ export class LoginComponent implements OnInit {
       this.user.id = undefined;
     }
   }
-
-  click(): void {
-    alert("OK");
-  }
 }
