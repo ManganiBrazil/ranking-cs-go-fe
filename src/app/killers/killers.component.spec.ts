@@ -18,7 +18,7 @@ describe('KillersComponent', () => {
   });
 
   it('should this.killer is instance of Killer', () => {
-      expect(killer instanceof Object).toEqual(false);
+      expect(killer instanceof Object).toEqual(true);
     }
   );
 
@@ -26,17 +26,16 @@ describe('KillersComponent', () => {
     killerConst.deathes = 1000;
     console.warn('killer -> ', JSON.stringify(killer));
     console.warn('killerConst -> ', JSON.stringify(killerConst));
-    expect(Object.is(killer, killerConst)).toBe(true);
-
+    expect(Object.is(killer, killerConst)).toBeFalsy();
   }));
 
 });
 
 
 /**
-referencia
+ referencia
 
-class Address {
+ class Address {
   constructor(street, city, state) {
     this.street = street;
     this.city = city;
@@ -44,7 +43,7 @@ class Address {
   }
 }
 
-class Person {
+ class Person {
   constructor(first, last, address) {
     this.firstName = first;
     this.lastName = last;
@@ -55,7 +54,7 @@ class Person {
     return this.firstName + ' ' + this.lastName;
   }
 }
-class Employee extends Person {
+ class Employee extends Person {
   constructor(first, last, address, title) {
     super(first, last, address);
     this.title = title;
@@ -63,7 +62,7 @@ class Employee extends Person {
 }
 
 
-describe('Test clone', function() {
+ describe('Test clone', function() {
   beforeEach(function() {
     this.address = new Address('1600 Amphitheatre Parkway', 'Mountain View', 'CA');
     this.original = new Employee('Sean', 'Lynch', this.address, 'developer');
@@ -92,6 +91,6 @@ describe('Test clone', function() {
   });
 });
 
-hljs.initHighlightingOnLoad();
+ hljs.initHighlightingOnLoad();
 
  */
