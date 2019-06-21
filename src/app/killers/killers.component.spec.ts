@@ -27,6 +27,7 @@ describe('KillersComponent', () => {
     console.warn('killer -> ', JSON.stringify(killer));
     console.warn('killerConst -> ', JSON.stringify(killerConst));
     expect(Object.is(killer, killerConst)).toBeTruthy();
+
   }));
 
 });
