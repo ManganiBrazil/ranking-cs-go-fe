@@ -9,12 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { KillersComponent } from './killers/killers.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Validator } from 'class-validator';
+import { NestingSafePipe } from './pipe/nesting-safe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    KillersComponent
+    KillersComponent,
+    NestingSafePipe
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { Validator } from 'class-validator';
   providers: [
     HttpClient,
     AutenthicationService,
-    Validator
+    Validator,
+    NestingSafePipe
   ],
 
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
-import {KillerModel} from '../model/killer.model';
-import {async, TestBed} from '@angular/core/testing';
+import { KillerModel } from '../model/killer.model';
+import { async, TestBed } from '@angular/core/testing';
 
 const killerConst = <KillerModel> {
   playerName: 'mangani',

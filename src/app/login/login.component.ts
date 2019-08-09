@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UrlEnum } from '../enum/url.enum';
 import { Validator } from 'class-validator';
+import { PriceService } from '../services/price.service';
+import { AjaxPrice } from '../model/ajax-price.model';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -19,14 +22,27 @@ export class LoginComponent implements OnInit {
 
   user: UserModel = <UserModel>({});
   errorMsg: string;
+  ajaxPrices = [];
 
   constructor(
     private authService: AutenthicationService,
     private router: Router,
-    private validator: Validator
+    private validator: Validator,
+    private priceService: PriceService
   ) {}
 
-  ngOnInit() { }
+  async ngOnInit() {
+
+    for(var i = 0; i < 5; i++) {
+
+      setTimeout(async() => {
+        const ajaxPrice = await this.priceService.find(362496);
+        this.ajaxPrices.push(ajaxPrice)
+      }, 1000);
+
+
+    }
+  }
 
   login(): void {
 
